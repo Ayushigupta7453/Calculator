@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://cdn.tailwindcss.com"></script>
+      
+	<title>CALCULATOR</title>
+	</head>
+	<body class="bg-amber-200 fill-current">
+      <h1 class="flex justify-center text-6xl font-serif mt-8">CALCULATOR</h1>
+      <div class="mt-36">
+         <div class="flex justify-center h-[50px]">
+      <input type="text" placeholder="0" class="w-[450px] border-solid border-2 border-indigo-600"> 
+   </div>
+         <div class="flex justify-center ">      
+         <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 text-red-600 text-3xl mr-4 mt-4 shadow-xl">AC</button>
+         <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 text-red-600 text-3xl  mr-4 mt-4 shadow-xl">DEL</button>
+         <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 text-red-600 text-3xl  mr-4 mt-4 shadow-xl">%</button>
+         <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 text-red-600 text-3xl  mr-4 mt-4 shadow-xl">/</button>
+         </div>
+
+         <div class="flex justify-center">
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 mr-4 mt-4 shadow-xl">7</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600  mr-4 mt-4 shadow-xl">8</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600  mr-4 mt-4 shadow-xl">9</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 text-red-600 text-4xl  mr-4 mt-4 shadow-xl">*</button>  
+         </div>
+         <div class="flex justify-center">
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 mr-4 mt-4 shadow-xl">4</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600  mr-4 mt-4 shadow-xl">5</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600  mr-4 mt-4 shadow-xl">6</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 text-red-600 text-4xl  mr-4 mt-4 shadow-xl">-</button>  
+         </div>
+         <div class="flex justify-center">
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 mr-4 mt-4 shadow-xl">1</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600  mr-4 mt-4 shadow-xl">2</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600  mr-4 mt-4 shadow-xl">3</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 text-red-600 text-4xl  mr-4 mt-4 shadow-xl">+</button>  
+         </div>
+         <div class="flex justify-center">
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 mr-4 mt-4 shadow-xl">00</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600  mr-4 mt-4 shadow-xl">0</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 text-red-600 text-4xl  mr-4 mt-4 shadow-xl">.</button>
+            <button class="rounded-lg bg-lime-200 w-[100px] h-[50px] border-solid border-2 border-indigo-600 text-red-600 text-4xl  mr-4 mt-4 shadow-xl">=</button>  
+         </div>
+      </div>
+      
+    </body>
+   <script>
+      let string =""
+let buttons = document.querySelectorAll('button')
+Array.from(buttons).forEach((button) =>{
+    button.addEventListener('click',(e)=>{
+        if(e.target.innerHTML == '='){
+            string = eval(string)
+            document.querySelector('input').value = string
+        }
+        else if(e.target.innerHTML == 'AC'){
+            string =""
+            document.querySelector('input').value=string
+        }
+        else if(e.target.innerHTML == 'DEL'){
+         string = string.slice(0,-1)
+         document.querySelector('input').value=string
+        }
+        else{  
+       console.log(e.target)
+       string = string + e.target.innerHTML;
+       document.querySelector('input').value = string
+        }
+    })
+})
+   </script>
+</html>
